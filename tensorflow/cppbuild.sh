@@ -30,6 +30,8 @@ tar --totals -xzf ../tensorflow-$TENSORFLOW_VERSION.tar.gz
 # Assumes Bazel is available in the path: http://bazel.io/docs/install.html
 cd tensorflow-$TENSORFLOW_VERSION
 
+# fix links in old zlib
+patch -Np1 < ../../../tensorflow-$TENSORFLOW_VERSION-zlib.patch
 
 case $PLATFORM in
 	android-arm)
